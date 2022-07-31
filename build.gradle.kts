@@ -20,6 +20,9 @@ dependencies {
 	implementation("org.springframework.kafka:spring-kafka")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+	implementation("ch.qos.logback:logback-classic")
+	implementation("io.github.microutils:kotlin-logging-jvm:2.1.21")
+
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
