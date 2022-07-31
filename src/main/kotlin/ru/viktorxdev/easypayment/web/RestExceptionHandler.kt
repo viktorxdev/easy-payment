@@ -14,12 +14,11 @@ class RestExceptionHandler : ResponseEntityExceptionHandler() {
     private val log = KotlinLogging.logger { }
 
     @ExceptionHandler(AppException::class)
-    fun handleAppException(ex: AppException): ResponseEntity<BaseResponse<Any>> {
-        log.error(ex) { ex.message }
-        return ResponseEntity
+    fun handleAppException(ex: AppException): ResponseEntity<BaseResponse<Any>> =
+        ResponseEntity
             .status(ex.status)
             .body(ex.message.baseError)
-    }
+
 
     @ExceptionHandler(Exception::class)
     fun handleException(ex: Exception): ResponseEntity<BaseResponse<Any>> {

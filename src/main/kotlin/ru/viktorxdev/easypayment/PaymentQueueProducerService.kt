@@ -16,6 +16,7 @@ class PaymentQueueProducerService(
         kafkaTemplate.sendDefault(accountId, amount.toPlainString())
         log.info { "put payment in queue: account_id = $accountId, amount = $amount" }
     }.getOrElse {
+        log.error(it) { "fail to send kafka message" }
         throw AppException.KafkaException("fail to put payment in queue: account_id = $accountId, amount = $amount")
     }
 }
